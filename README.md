@@ -12,12 +12,14 @@ npx expo install \
   react-native-screens \
   react-native-safe-area-context \
   @react-native-masked-view/masked-view
+
 npx expo install react-native-gesture-handler react-native-reanimated react-native-screens react-native-safe-area-context @react-native-masked-view/masked-view
 
 # 3️⃣ Install the React Navigation libraries
 npm install \
   @react-navigation/native \
   @react-navigation/drawer
+
 npm install @react-navigation/native @react-navigation/drawer
 
 # 4️⃣ (Optional) If/when you add native modules like AdMob or IAP:
