@@ -168,8 +168,24 @@ npm install -g eas-cli
 npx eas login
 npx eas build:configure
 eas build --platform android
-```
 
+Prebuild the native project (this injects the Gradle / AndroidManifest changes those packages require):
+
+bash
+Copy
+Edit
+npx expo prebuild --platform android
+or simply
+
+npx expo run:android
+which under the hood does the prebuild + Gradle install.
+
+Build with Gradle (debug or release):
+
+cd android
+./gradlew assembleDebug      # for a debug APK
+./gradlew assembleRelease    # for a release APK
+```
 ---
 
 ## What You’ve Achieved
