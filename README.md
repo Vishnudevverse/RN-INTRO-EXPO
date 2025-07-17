@@ -171,9 +171,6 @@ eas build --platform android
 
 Prebuild the native project (this injects the Gradle / AndroidManifest changes those packages require):
 
-bash
-Copy
-Edit
 npx expo prebuild --platform android
 or simply
 
