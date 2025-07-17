@@ -1,39 +1,62 @@
-Here’s the **complete CLI command sequence** to spin up your Expo Drawer app **and** convert it to TypeScript (`.tsx`), including all necessary libraries:
+# Expo Drawer App with TypeScript
+
+A step-by-step guide to bootstrap an Expo project featuring a Drawer navigator and full TypeScript support.
+
+---
+
+## Prerequisites
+
+- Node.js (v14+) and npm  
+- expo-cli (optional but recommended)  
+- Familiarity with React Native and TypeScript basics  
+
+---
+
+## 1. Create the Expo Project
 
 ```bash
-# 1️⃣ (Optional) Install Expo CLI globally
-npm install -g expo-cli
-
-# 2️⃣ Create a new blank Expo project
+npm install -g expo-cli           # (Optional) install Expo CLI globally
 npx create-expo-app expoDrawerApp --template blank
 cd expoDrawerApp
+```
 
-# 3️⃣ Install React Navigation Drawer dependencies
+---
+
+## 2. Install React Navigation Drawer
+
+```bash
 npx expo install \
   react-native-gesture-handler \
   react-native-reanimated \
   react-native-screens \
   react-native-safe-area-context \
   @react-native-masked-view/masked-view
-npm install \
-  @react-navigation/native \
-  @react-navigation/drawer
 
-npx expo install react-native-gesture-handler react-native-reanimated react-native-screens react-native-safe-area-context @react-native-masked-view/masked-view
 npm install @react-navigation/native @react-navigation/drawer
+```
 
+---
 
-# 4️⃣ Install TypeScript and type definitions
+## 3. Add TypeScript
+
+```bash
 npm install --save-dev typescript @types/react @types/react-native
+```
 
-# 5️⃣ (Optional) Expo TS config helper
+Optionally, pull in Expo’s TS config helper:
+
+```bash
 npx expo install expo-env
+```
 
-# 6️⃣ Initialize a tsconfig.json
-#    You can simply run:
-npx tsc --init --pretty --jsx react-jsx
+---
 
-#    Then replace its contents with:
+## 4. Configure TypeScript
+
+Initialize a base `tsconfig.json` and then replace its contents:
+
+```bash
+tsconfig.json
 ```
 
 ```json
@@ -56,31 +79,21 @@ npx tsc --init --pretty --jsx react-jsx
 }
 ```
 
+---
+
+## 5. Migrate to TypeScript
+
+Rename your entry point:
+
 ```bash
-# 7️⃣ Rename App.js → App.tsx
 git mv App.js App.tsx
-
-# 8️⃣ Replace App.tsx contents with the TSX Drawer code below
-
-# 9️⃣ Start the app in Expo Go (JS‑only preview)
-npx expo start
-
-# 🔟 When you need native modules (AdMob, IAP), install:
-npx expo install expo-ads-admob expo-in-app-purchases expo-dev-client
-
-# 1️⃣1️⃣ Build & install custom dev client on Android
-npx expo run:android
-
-# 1️⃣2️⃣ For production builds with EAS:
-npm install -g eas-cli
-npx eas login
-npx eas build:configure
-eas build --platform android
 ```
 
 ---
 
-### 📄 Your new **App.tsx**:
+## 6. Update App.tsx
+
+Paste in this Drawer navigator setup:
 
 ```tsx
 // App.tsx
@@ -125,16 +138,44 @@ export default function App(): JSX.Element {
 }
 
 const styles = StyleSheet.create({
-  container: { flex: 1, alignItems: 'center', justifyContent: 'center' },
+  container: { flex: 1, alignItems: 'center', justifyContent: 'center' }
 });
 ```
 
 ---
 
-You’re now set up with:
+## 7. Run & Develop
 
-1. **`expoDrawerApp`** project
-2. **React Navigation Drawer**
-3. **TypeScript (`.tsx`)** support
+Start the Expo server:
 
-Let me know if you’d like any further tweaks!
+```bash
+npx expo start
+```
+
+To add native modules (AdMob, IAP, custom dev client):
+
+```bash
+npx expo install expo-ads-admob expo-in-app-purchases expo-dev-client
+npx expo run:android
+```
+
+---
+
+## 8. Production Builds with EAS
+
+```bash
+npm install -g eas-cli
+npx eas login
+npx eas build:configure
+eas build --platform android
+```
+
+---
+
+## What You’ve Achieved
+
+- A fresh Expo project named **expoDrawerApp**  
+- A working **React Navigation Drawer**  
+- Full **TypeScript** support with `App.tsx`  
+
+Now you can customize drawer content, styling, and add more screens. Enjoy building!
