@@ -19,6 +19,10 @@ npm install \
   @react-navigation/native \
   @react-navigation/drawer
 
+npx expo install react-native-gesture-handler react-native-reanimated react-native-screens react-native-safe-area-context @react-native-masked-view/masked-view
+npm install @react-navigation/native @react-navigation/drawer
+
+
 # 4️⃣ Install TypeScript and type definitions
 npm install --save-dev typescript @types/react @types/react-native
 
